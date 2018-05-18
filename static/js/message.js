@@ -132,7 +132,7 @@ var findContainer = function(parentElement, keyword, elementMax) {
 }
 
 var insertMessageAll = function(messages) {
-    for (var i = 0; i < messages.length; i++) {
+    for (var i = messages.length - 1; i >= 0; i--) {
         var m = messages[i]
         var t = templateMessage(m)
         var messageContainer = findContainer('.page', '#messages-', 20)

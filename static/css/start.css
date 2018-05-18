@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #0e0e14;
+    background: linear-gradient(to right, #000000 0%,#ffffff 100%);
 }
 
 #viewport {
