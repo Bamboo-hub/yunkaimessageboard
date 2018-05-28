@@ -1,7 +1,7 @@
 @media all and (orientation : portrait){
 body {
     margin: 0;
-    background-color: #0e0e14;
+    background-color: #1d1a37;
 }
 
 #viewport {
@@ -26,7 +26,7 @@ body {
     position: relative;
     width: 80%;
     height: 75px;
-    background-color: #ffffff;
+    background-color: #20222c;
     color: #f6f6f6;
     padding: 10px;
     border: 1px #2f3d4d dashed;
@@ -108,8 +108,8 @@ body {
     position: relative;
     width: 16px;
     height: 17px;
-    left: 60%;
-    top: -75px;
+    left: 90%;
+    top: -28px;
     visibility: hidden;
 }
 
