@@ -135,7 +135,7 @@ var insertMessageAll = function(messages) {
     for (var i = messages.length - 1; i >= 0; i--) {
         var m = messages[i]
         var t = templateMessage(m)
-        var messageContainer = findContainer('.page', '#messages-', 20)
+        var messageContainer = findContainer('.page', '#messages-', 15)
         // 这个方法用来添加元素
         // 第一个参数 'beforeend' 意思是放在最后
         messageContainer.innerHTML += t
@@ -206,9 +206,7 @@ var templateMessage = function(message) {
     var content = message.content
     var m = `
     <div class="message-cell" data-id="${id}">
-        <div class="message-bg">
-            <div class='message-content' >${content}</div>
-        </div>
+        <div class="message-bg">${content}</div>
         <img class='message-delete' src=images/message_delete.png>
     </div>
     `
@@ -337,7 +335,7 @@ var deleteMessage = function(element) {
 }
 
 var a = e('#id-audio-player')
-a.autoplay = true
+// a.autoplay = true
 
 
 var play = function() {
@@ -367,6 +365,20 @@ var phonePlay = function() {
     document.body.addEventListener('click', f)
 
 }
+
+var phoneViewport = function() {
+    // 按设备高度设置 viewport 具体大小，并保持同比
+    var viewport = e('#viewport')
+    var viewportWidth = window.innerWidth
+    var viewportHeight = window.innerWidth / 0.562218890554723
+    log('viewport', viewportWidth, viewportHeight, window.innerHeight)
+    if (window.innerWidth < window.innerHeight) {
+        viewport.style.width = `${viewportWidth}px`
+        viewport.style.height = `${viewportHeight}px`
+    }
+}
+
+phoneViewport()
 findContainer()
 
 loadMessages()

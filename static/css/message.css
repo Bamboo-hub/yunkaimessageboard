@@ -1,3 +1,4 @@
+@media all and (orientation : landscape){
 body {
     margin: 0;
     background-color: #0e0e14;
@@ -39,7 +40,6 @@ body {
     width: 177px;
     height: 151px;
     background-image: url(../images/message_portrait.png);
-    cursor: pointer;
 }
 
 #button {
@@ -85,15 +85,6 @@ body {
 
 .message-bg {
     position: relative;
-    width: 988px;
-    height: 75px;
-    background-color: #20222c;
-    padding: 0;
-    opacity: 0.5;
-}
-
-.message-content {
-    position: relative;
     width: 968px;
     height: 65px;
     color: #f6f6f6;
@@ -104,6 +95,8 @@ body {
     font-family: '宋体';
     line-height: 22px;
     overflow: hidden;
+    background-color: #20222c;
+    opacity: 0.5;
 }
 
 .message-delete {
@@ -203,4 +196,9 @@ body {
 
 .show2 {
     display: block;
+}
+
+#phonebanner {
+    display: none;
+}
 }

@@ -1,4 +1,4 @@
-@media all and (orientation : landscape) {
+@media all and (orientation : portrait) {
     body {
         margin: 0;
         background: #000000;
@@ -6,21 +6,25 @@
 
     #viewport {
         overflow: auto;
-        width: 1920px;
-        height: 1080px;
-        background-image: url(../images/start_bg.jpg);
+        width: 100%;
     }
 
     #phonebg {
-        display: none;
+        overflow: auto;
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        top: 0;
     }
 
     #button {
-        position: absolute;
-        left: 680px;
-        top: 700px;
+        position: relative;
+        /* left: 680px; */
+        top: 1150px;
         width: 500px;
+        z-index: 1;
         height: 200px;
+        margin: 0 auto;
     }
 
     #rect {
