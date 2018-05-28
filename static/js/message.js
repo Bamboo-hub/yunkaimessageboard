@@ -189,7 +189,8 @@ var buttonClick = function() {
     var input = e('#input')
     button.addEventListener('click', function(event){
         var content = input.value
-        if (content.length >= 1) {
+        log('valuelength', content.length)
+        if (content.length >= 1 && content.length <= 200) {
             // 得到用户填写的数据
             var form = {
                 content: content,
@@ -197,6 +198,8 @@ var buttonClick = function() {
             // 用这个数据调用 messageNew 来创建一篇新博客
             messageNew(form)
             swal("发送成功！", "刷新就可以看到留言啦。","success")
+        } else if(content.length > 200) {
+            swal("字段太长啦！", "修改一下内容或分段发送吧，谢谢你的热情！","warning")
         }
     })
 }
@@ -387,4 +390,4 @@ bindEventPassword()
 bindEventpages()
 play()
 pause()
-phonePlay()
+// phonePlay()
