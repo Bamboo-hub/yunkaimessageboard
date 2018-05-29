@@ -1,7 +1,7 @@
 @media all and (orientation : portrait) {
     body {
         margin: 0;
-        background: #000000;
+        background: #fb9739;
     }
 
     #viewport {
@@ -20,8 +20,8 @@
     #button {
         position: relative;
         /* left: 680px; */
-        top: 1150px;
-        width: 500px;
+        top: 500px;
+        width: 400px;
         z-index: 1;
         height: 200px;
         margin: 0 auto;
@@ -29,29 +29,65 @@
 
     #rect {
         position: absolute;
-        top: 80px;
-        left: 100px;
+        top: 30px;
+        left: 18px;
         width: 372px;
         height: 28px;
+        transform: scale(0.8, 0.8);
         background-image: url(../images/start_button.jpg);
         cursor: pointer;
     }
 
     #star {
         position: absolute;
-        top: 12px;
-        left: 52px;
-        width: 133px;
-        height: 149px;
+        top: -35px;
+        width: 151px;
+        height: 137px;
+        transform: scale(0.8, 0.8);
         background-image: url(../images/start_star.png);
     }
 
     #portrait {
         position: absolute;
-        top: -50px;
-        left: 333px;
+        top: -67px;
+        left: 243px;
         width: 151px;
         height: 137px;
+        transform: scale(0.5, 0.5);
         background-image: url(../images/start_portrait.png);
+    }
+}
+
+@media all and (max-width: 1024px) {
+    #button {
+        top: 1150px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #button {
+        top: 880px;
+    }
+}
+
+@media all and (max-width: 414px) {
+    #button {
+        top: 500px;
+    }
+}
+
+@media all and (max-width: 375px) {
+    #button {
+        left: -10px;
+        transform: scale(0.9, 0.9);
+        top: 450px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    #button {
+        left: -40px;
+        transform: scale(0.8, 0.8);
+        top: 380px;
     }
 }
