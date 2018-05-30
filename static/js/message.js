@@ -47,6 +47,7 @@ var toggleClass = function(class1, element1, element2) {
     }
 }
 
+// 页面载入时给动态添加的 HTML 增加 CSS
 var controlCSS = function(messages) {
     // 默认显示页一留言
     var messageOne = e('#messages-1')
@@ -58,7 +59,7 @@ var controlCSS = function(messages) {
     if (pagemoduleOne != null) {
         pagemoduleOne.classList.add('show1')
     }
-// 默认页码一加上外发光效果
+    // 默认页码一加上外发光效果
     var messageOne = e('#page-1')
     if (messageOne != null) {
         messageOne.classList.add('active')
@@ -75,6 +76,7 @@ var controlCSS = function(messages) {
     }
 }
 
+// 如果留言不为空，则生成一整组相关模块
 var loadPages = function(messages) {
     if (messages.length != 0) {
         var pages = Math.ceil(messages.length / 5)
@@ -87,22 +89,23 @@ var loadPages = function(messages) {
     }
 }
 
+// 创建页码模块，用于接下来往内填充页码
 var newPageModule = function(pageint) {
     var module = Math.ceil(pageint / 5)
     log(module)
     var pagebox = e('#pagebox')
     for (var i = 1; i <= module; i++) {
-        // 创建页码的模块，用于接下来往内填充页码
         var m = `<div class="pagemodule" id="pagemodule-${i}"></div>`
         pagebox.insertAdjacentHTML('beforeend', m)
         newPage(i, pageint)
     }
 }
+
+// 创建每页留言的模块，用于接下来往内填充留言
 var newPage = function(index, pages) {
     var int = (index - 1) * 5
     for (var i = 1; i <= 5; i++) {
         if(i + int <= pages) {
-            // 创建每页留言的模块，用于接下来往内填充留言
             var m = `<div class="page" id="messages-${i + int}"></div>`
             var messageContainer = e('#messages')
             messageContainer.insertAdjacentHTML('beforeend', m)
@@ -118,6 +121,7 @@ var findALL = function(element, selector) {
     return element.querySelectorAll(selector)
 }
 
+// 返回一个未被填满的留言模块
 var findContainer = function(parentElement, keyword, elementMax) {
     var pagemax = es(parentElement).length
     for (var i = 1; i <= pagemax; i++) {
@@ -131,6 +135,7 @@ var findContainer = function(parentElement, keyword, elementMax) {
     }
 }
 
+// 将所有留言插入到模块中
 var insertMessageAll = function(messages) {
     for (var i = messages.length - 1; i >= 0; i--) {
         var m = messages[i]
@@ -146,25 +151,18 @@ var insertMessageAll = function(messages) {
 // 创建一个 messages 数组用来保存所有的 message
 var messages = []
 
-// 载入页面的时候  把已经有的 message 加载到页面中
-var loadMessages = function() {
+// 获取后端发来的留言
+var loadMessages = function(callback) {
     var request = {
         method: 'GET',
         url: '/api/message/all',
         contentType: 'application/json',
-        callback: function(response) {
-            // 不考虑错误情况(断网/服务器返回错误等等)
-            var messages = JSON.parse(response)
-            window.messages = messages
-            loadPages(messages)
-            controlCSS(messages)
-            bindEventSwitch()
-            insertMessageAll(messages)
-        }
+        callback: callback
     }
     ajax(request)
 }
 
+// 向后端发送新的留言
 var messageNew = function(form) {
     // var form = {
     //     content: "测试标题",
@@ -197,6 +195,23 @@ var buttonClick = function() {
             }
             // 用这个数据调用 messageNew 来创建一篇新博客
             messageNew(form)
+            var box = e('#box')
+            box.innerHTML = `
+            <div id="messages">
+            </div>
+            <div id="pages">
+                <div id="pagebox">
+                </div>
+            </div>
+            `
+            loadMessages(function(response) {
+                // 不考虑错误情况(断网/服务器返回错误等等)
+                var messages = JSON.parse(response)
+                loadPages(messages)
+                controlCSS(messages)
+                bindEventSwitch()
+                insertMessageAll(messages)
+            })
             swal("发送成功！", "刷新就可以看到留言啦。","success")
         } else if(content.length > 200) {
             swal("字段太长啦！", "修改一下内容或分段发送吧，谢谢你的热情！","warning")
@@ -204,6 +219,7 @@ var buttonClick = function() {
     })
 }
 
+// 生成单个留言模块
 var templateMessage = function(message) {
     var id = message.id
     var content = message.content
@@ -216,6 +232,7 @@ var templateMessage = function(message) {
     return m
 }
 
+// 直接点击切换页码
 var bindEventSwitch = function() {
     // 切换留言与页码 css
     var selector = es('.pageint')
@@ -239,6 +256,7 @@ var bindEventSwitch = function() {
     })
 }
 
+// 判断左右切换条件
 var pagesCSS = function(direction) {
     var show1 = e('.show1')
     var modules = es('.pagemodule')
@@ -257,9 +275,8 @@ var pagesCSS = function(direction) {
     }
 }
 
+// 左右切换页码组
 var bindEventpages = function() {
-    // 绑定删除功能
-    // 切换留言与页码 css
     document.body.addEventListener('click', function (event) {
         var self = event.target
         if (self.classList.contains('page-<')) {
@@ -270,8 +287,8 @@ var bindEventpages = function() {
     })
 }
 
+// 删除留言
 var bindEventPassword = function() {
-    // 绑定删除功能
     document.body.addEventListener('click', function (event) {
         var self = event.target
         if(self.classList.contains('message-delete')){
@@ -293,6 +310,7 @@ var bindEventPassword = function() {
     })
 }
 
+// 检测权限
 var verifyPassword = function(string, element) {
     var form = {
         password: string,
@@ -315,10 +333,10 @@ var verifyPassword = function(string, element) {
 
 }
 
+// 删除后端数据
 var deleteMessage = function(element) {
     var cell = element.parentElement
     var index = cell.dataset.id
-    // 得到用户填写的数据
     var form = {
         id: index,
     }
@@ -337,11 +355,20 @@ var deleteMessage = function(element) {
     cell.remove()
 }
 
-var a = e('#id-audio-player')
-// a.autoplay = true
+var bindEventMusic = function() {
+    var a = e('#id-audio-player')
+    a.autoplay = true
 
+    // 手机模拟自动播放
+    var f = function (event) {
+        var self = event.target
+        if (!self.classList.contains('play')) {
+            a.play()
+        }
+        document.body.removeEventListener('click', f)
+    }
+    document.body.addEventListener('click', f)
 
-var play = function() {
     var play = e('.play')
     var pause = e('.pause')
     play.addEventListener('click', function(event){
@@ -349,10 +376,7 @@ var play = function() {
         a.pause()
         pause.style.display = 'block'
     })
-}
 
-var pause = function() {
-    var pause = e('.pause')
     pause.addEventListener('click', function(event){
         log('click 暂停')
         a.play()
@@ -360,17 +384,8 @@ var pause = function() {
     })
 }
 
-var phonePlay = function() {
-    var f = function (event) {
-        a.play()
-        document.body.removeEventListener('click', f)
-    }
-    document.body.addEventListener('click', f)
-
-}
-
+// 按设备高度设置 viewport 具体大小，并保持同比
 var phoneViewport = function() {
-    // 按设备高度设置 viewport 具体大小，并保持同比
     var viewport = e('#viewport')
     var viewportWidth = window.innerWidth
     var viewportHeight = window.innerWidth / 0.562218890554723
@@ -384,10 +399,16 @@ var phoneViewport = function() {
 phoneViewport()
 findContainer()
 
-loadMessages()
+loadMessages(function(response) {
+    // 不考虑错误情况(断网/服务器返回错误等等)
+    var messages = JSON.parse(response)
+    window.messages = messages
+    loadPages(messages)
+    controlCSS(messages)
+    bindEventSwitch()
+    insertMessageAll(messages)
+})
 buttonClick()
 bindEventPassword()
 bindEventpages()
-play()
-pause()
-// phonePlay()
+// bindEventMusic()
