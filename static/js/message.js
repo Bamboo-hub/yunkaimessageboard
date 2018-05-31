@@ -141,8 +141,6 @@ var insertMessageAll = function(messages) {
         var m = messages[i]
         var t = templateMessage(m)
         var messageContainer = findContainer('.page', '#messages-', 15)
-        // 这个方法用来添加元素
-        // 第一个参数 'beforeend' 意思是放在最后
         messageContainer.innerHTML += t
     }
 }
@@ -195,8 +193,9 @@ var buttonClick = function() {
             }
             // 用这个数据调用 messageNew 来创建一篇新博客
             messageNew(form)
-            var box = e('#box')
-            box.innerHTML = `
+            setTimeout(function(){
+                var box = e('#box')
+                box.innerHTML = `
             <div id="messages">
             </div>
             <div id="pages">
@@ -204,15 +203,16 @@ var buttonClick = function() {
                 </div>
             </div>
             `
-            loadMessages(function(response) {
-                // 不考虑错误情况(断网/服务器返回错误等等)
-                var messages = JSON.parse(response)
-                loadPages(messages)
-                controlCSS(messages)
-                bindEventSwitch()
-                insertMessageAll(messages)
-            })
-            swal("发送成功！", "刷新就可以看到留言啦。","success")
+                loadMessages(function(response) {
+                    // 不考虑错误情况(断网/服务器返回错误等等)
+                    var messages = JSON.parse(response)
+                    loadPages(messages)
+                    controlCSS(messages)
+                    bindEventSwitch()
+                    insertMessageAll(messages)
+                })
+                // swal("发送成功！", "刷新就可以看到留言啦。","success")
+            }, 3000)
         } else if(content.length > 200) {
             swal("字段太长啦！", "修改一下内容或分段发送吧，谢谢你的热情！","warning")
         }
