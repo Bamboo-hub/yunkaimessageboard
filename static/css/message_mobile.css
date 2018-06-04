@@ -297,10 +297,6 @@ body {
 }
 
 @media all and (max-width: 414px) {
-    body {
-        background-color: #878401;
-    }
-
     #inputbox {
         top: 14%;
         left: 2%;
