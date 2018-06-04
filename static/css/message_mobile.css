@@ -17,11 +17,11 @@ body {
     top: 0;
 }
 
-    #phonefooter {
-        position: relative;
-        width: 100%;
-        bottom: 0;
-    }
+#phonefooter {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
 
 #inputbox {
     position: relative;
@@ -336,6 +336,7 @@ body {
 
     #phonefooter {
         position: relative;
+        bottom: 0;
     }
 }
 
