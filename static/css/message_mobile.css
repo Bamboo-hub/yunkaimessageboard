@@ -1,7 +1,7 @@
 @media all and (orientation : portrait){
 body {
     margin: 0;
-    background-color: #878401;
+    background-color: #1e1b38;
     vertical-align: bottom;
 }
 
@@ -62,7 +62,6 @@ body {
 
 #box {
     position: relative;
-    background-color: #1e1b38;
     top: 20px;
     padding-left: 10%;
     padding-right: 10%;
