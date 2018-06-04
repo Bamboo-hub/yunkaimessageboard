@@ -19,75 +19,77 @@
 
     #button {
         position: relative;
-        /* left: 680px; */
-        top: 500px;
+        left: 80px;
+        top: 210px;
         width: 400px;
         z-index: 1;
         height: 200px;
         margin: 0 auto;
     }
 
+    @keyframes buttonAnimation {
+        25% {
+            top: 40px;
+        }
+        75% {
+            top: 20px;
+        }
+        100% {
+            top: 30px;
+        }
+    }
+
     #rect {
         position: absolute;
         top: 30px;
         left: 18px;
-        width: 372px;
-        height: 28px;
-        transform: scale(0.8, 0.8);
-        background-image: url(../images/start_button.jpg);
+        width: 230px;
+        height: 246px;
+        transform: scale(0.35, 0.35);
+        background-image: url(../images/startmobile_button.png);
         cursor: pointer;
+        animation: buttonAnimation linear 2s infinite;
+        animation-fill-mode: forwards;
     }
 
     #star {
-        position: absolute;
-        top: -35px;
-        width: 151px;
-        height: 137px;
-        transform: scale(0.8, 0.8);
-        background-image: url(../images/start_star.png);
+        display: none;
     }
 
     #portrait {
-        position: absolute;
-        top: -67px;
-        left: 243px;
-        width: 151px;
-        height: 137px;
-        transform: scale(0.5, 0.5);
-        background-image: url(../images/start_portrait.png);
+        display: none;
     }
 }
 
-@media all and (max-width: 1024px) {
-    #button {
-        top: 1150px;
-    }
-}
+/*@media all and (max-width: 1024px) {*/
+    /*#button {*/
+        /*top: 1150px;*/
+    /*}*/
+/*}*/
 
-@media all and (max-width: 768px) {
-    #button {
-        top: 880px;
-    }
-}
+/*@media all and (max-width: 768px) {*/
+    /*#button {*/
+        /*top: 880px;*/
+    /*}*/
+/*}*/
 
-@media all and (max-width: 414px) {
-    #button {
-        top: 500px;
-    }
-}
+/*@media all and (max-width: 414px) {*/
+    /*#button {*/
+        /*top: 500px;*/
+    /*}*/
+/*}*/
 
-@media all and (max-width: 375px) {
-    #button {
-        left: -10px;
-        transform: scale(0.9, 0.9);
-        top: 450px;
-    }
-}
+/*@media all and (max-width: 375px) {*/
+    /*#button {*/
+        /*left: -10px;*/
+        /*transform: scale(0.9, 0.9);*/
+        /*top: 450px;*/
+    /*}*/
+/*}*/
 
 @media all and (max-width: 320px) {
     #button {
-        left: -40px;
-        transform: scale(0.8, 0.8);
-        top: 380px;
-    }
+        left: 40px;
+        transform: scale(0.85, 0.85);
+        top: 170px;
 }

@@ -68,8 +68,9 @@ var controlCSS = function(messages) {
     if (messages.length != 0) {
         var pages = Math.ceil(messages.length / 5) + 2
         var width = pages * 30
-        if(width > 300) {
-            width = 300
+        log(width, 'pages')
+        if(width > 210) {
+            width = 210
         }
         var pagebox = e('#pagebox')
         pagebox.style.width = `${width}px`

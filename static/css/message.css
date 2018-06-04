@@ -207,4 +207,8 @@ body {
 #phonebanner {
     display: none;
 }
+
+#phonefooter {
+    display: none;
+}
 }
