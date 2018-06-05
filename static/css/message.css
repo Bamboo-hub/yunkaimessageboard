@@ -208,6 +208,10 @@ body {
     display: none;
 }
 
+#phonecopyright {
+    display: none;
+}
+
 #phonefooter {
     display: none;
 }

@@ -17,10 +17,16 @@ body {
     top: 0;
 }
 
+    #phonecopyright {
+        position: absolute;
+        right: 0;
+        top: 29%;
+    }
+
 #phonefooter {
-    position: relative;
-    width: 100%;
+    position: fixed;
     bottom: 0;
+    width: 100%;
 }
 
 #inputbox {
@@ -223,164 +229,164 @@ body {
     }
 
 }
-@media all and (max-width: 1024px) {
-    body {
-        background-color: #1e1b38;
-    }
+/*@media all and (max-width: 1024px) {*/
+    /*body {*/
+        /*background-color: #1e1b38;*/
+    /*}*/
 
-    #inputbox {
-        top: 15%;
-        left: 3%;
-    }
+    /*#inputbox {*/
+        /*top: 15%;*/
+        /*left: 3%;*/
+    /*}*/
 
-    #input {
-        width: 480px;
-        height: 110px;
-        font-size: 24px;
-        line-height: 38px;
-    }
+    /*#input {*/
+        /*width: 480px;*/
+        /*height: 110px;*/
+        /*font-size: 24px;*/
+        /*line-height: 38px;*/
+    /*}*/
 
-    #button {
-        left: 72%;
-        top: -63%;
-        transform: scale(0.9, 0.9);
-    }
+    /*#button {*/
+        /*left: 72%;*/
+        /*top: -63%;*/
+        /*transform: scale(0.9, 0.9);*/
+    /*}*/
 
-    #box {
-        top: 350px;
-        background-color: transparent;
-    }
-
-    .message-bg {
-        font-size: 24px;
-        line-height: 38px;
-    }
-
-    #phonefooter {
-        position: absolute;
-    }
-}
-
-@media all and (max-width: 768px) {
-    body {
-        background-color: #1e1b38;
-    }
-
-    #inputbox {
-        top: 15%;
-        left: 3%;
-    }
-
-    #input {
-        width: 400px;
-        height: 95px;
-    }
-
-    #button {
-        left: 72%;
-        transform: scale(0.6, 0.6);
-    }
-
-    #box {
-        top: 200px;
-        background-color: transparent;
-    }
+    /*#box {*/
+        /*top: 350px;*/
+        /*background-color: transparent;*/
+    /*}*/
 
     /*.message-bg {*/
         /*font-size: 24px;*/
         /*line-height: 38px;*/
     /*}*/
 
-    #phonefooter {
-        bottom: -380px;
-    }
-}
+    /*#phonefooter {*/
+        /*position: absolute;*/
+    /*}*/
+/*}*/
 
-@media all and (max-width: 414px) {
-    #inputbox {
-        top: 14%;
-        left: 2%;
-        width: 70%;
-        height: 190px;
-    }
+/*@media all and (max-width: 768px) {*/
+    /*body {*/
+        /*background-color: #1e1b38;*/
+    /*}*/
 
-    #input {
-        width: 180px;
-        height: 65px;
-        font-size: 12px;
-        line-height: 24px;
-    }
+    /*#inputbox {*/
+        /*top: 15%;*/
+        /*left: 3%;*/
+    /*}*/
 
-    #button {
-        top: -53%;
-        left: 57%;
-        transform: scale(0.5, 0.5);
-    }
+    /*#input {*/
+        /*width: 400px;*/
+        /*height: 95px;*/
+    /*}*/
 
-    #box {
-        background-color: #1e1b38;
-        top: 20px;
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+    /*#button {*/
+        /*left: 72%;*/
+        /*transform: scale(0.6, 0.6);*/
+    /*}*/
 
-    .message-bg {
-        font-size: 13px;
-        line-height: 22px;
-    }
+    /*#box {*/
+        /*top: 200px;*/
+        /*background-color: transparent;*/
+    /*}*/
 
-    #phonefooter {
-        position: relative;
-        bottom: 0;
-    }
-}
+    /*!*.message-bg {*!*/
+        /*!*font-size: 24px;*!*/
+        /*!*line-height: 38px;*!*/
+    /*!*}*!*/
 
-@media all and (max-width: 375px) {
-    #inputbox {
-        top: 15%;
-    }
+    /*#phonefooter {*/
+        /*bottom: -380px;*/
+    /*}*/
+/*}*/
 
-    #button {
-        left: 60%;
-        transform: scale(0.4, 0.4);
-    }
-}
+/*@media all and (max-width: 414px) {*/
+    /*#inputbox {*/
+        /*top: 14%;*/
+        /*left: 2%;*/
+        /*width: 70%;*/
+        /*height: 190px;*/
+    /*}*/
 
-@media all and (max-width: 320px) {
-    #inputbox {
-        position: relative;
-        top: 14%;
-        left: 2%;
-        width: 70%;
-        height: 190px;
-    }
+    /*#input {*/
+        /*width: 180px;*/
+        /*height: 65px;*/
+        /*font-size: 12px;*/
+        /*line-height: 24px;*/
+    /*}*/
 
-    #input {
-        position: relative;
-        width: 155px;
-        height: 65px;
-        background-color: #1e1e32;
-        color: #f6f6f6;
-        padding: 5px;
-        border: 1px #f6fafc dashed;
-        opacity: 0.9;
-        font-size: 10px;
-        line-height: 24px;
-        outline: none;
-    }
+    /*#button {*/
+        /*top: -53%;*/
+        /*left: 57%;*/
+        /*transform: scale(0.5, 0.5);*/
+    /*}*/
 
-    #button {
-        position: relative;
-        top: -53%;
-        left: 57%;
-        width: 146px;
-        height: 107px;
-        background-image: url(../images/messagemobile_button.png);
-        cursor: pointer;
-        transform: scale(0.3, 0.3);
-    }
+    /*#box {*/
+        /*background-color: #1e1b38;*/
+        /*top: 20px;*/
+        /*padding-left: 10%;*/
+        /*padding-right: 10%;*/
+    /*}*/
 
-    #box {
-        top: -10px;
-    }
-}
+    /*.message-bg {*/
+        /*font-size: 13px;*/
+        /*line-height: 22px;*/
+    /*}*/
+
+    /*#phonefooter {*/
+        /*position: relative;*/
+        /*bottom: 0;*/
+    /*}*/
+/*}*/
+
+/*@media all and (max-width: 375px) {*/
+    /*#inputbox {*/
+        /*top: 15%;*/
+    /*}*/
+
+    /*#button {*/
+        /*left: 60%;*/
+        /*transform: scale(0.4, 0.4);*/
+    /*}*/
+/*}*/
+
+/*@media all and (max-width: 320px) {*/
+    /*#inputbox {*/
+        /*position: relative;*/
+        /*top: 14%;*/
+        /*left: 2%;*/
+        /*width: 70%;*/
+        /*height: 190px;*/
+    /*}*/
+
+    /*#input {*/
+        /*position: relative;*/
+        /*width: 155px;*/
+        /*height: 65px;*/
+        /*background-color: #1e1e32;*/
+        /*color: #f6f6f6;*/
+        /*padding: 5px;*/
+        /*border: 1px #f6fafc dashed;*/
+        /*opacity: 0.9;*/
+        /*font-size: 10px;*/
+        /*line-height: 24px;*/
+        /*outline: none;*/
+    /*}*/
+
+    /*#button {*/
+        /*position: relative;*/
+        /*top: -53%;*/
+        /*left: 57%;*/
+        /*width: 146px;*/
+        /*height: 107px;*/
+        /*background-image: url(../images/messagemobile_button.png);*/
+        /*cursor: pointer;*/
+        /*transform: scale(0.3, 0.3);*/
+    /*}*/
+
+    /*#box {*/
+        /*top: -10px;*/
+    /*}*/
+/*}*/
