@@ -212,8 +212,8 @@ var buttonClick = function() {
                     bindEventSwitch()
                     insertMessageAll(messages)
                 })
-                // swal("发送成功！", "刷新就可以看到留言啦。","success")
-            }, 3000)
+                swal("发送成功！", "谢谢你的留言！","success")
+            }, 2000)
         } else if(content.length > 200) {
             swal("字段太长啦！", "修改一下内容或分段发送吧，谢谢你的热情！","warning")
         }
@@ -359,6 +359,11 @@ var deleteMessage = function(element) {
 var bindEventMusic = function() {
     var a = e('#id-audio-player')
     a.autoplay = true
+    a.addEventListener('ended', function(event){
+        // 单曲循环
+        a.currentTime = 0
+        a.play()
+    })
 
     // 手机模拟自动播放
     var f = function (event) {

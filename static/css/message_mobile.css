@@ -21,6 +21,7 @@ body {
         position: absolute;
         right: 0;
         top: 29%;
+        height: 13%;
     }
 
 #phonefooter {
@@ -261,6 +262,10 @@ body {
         font-size: 24px;
         line-height: 38px;
     }
+
+    #phonecopyright {
+        top: 39%;
+    }
 }
 
 @media all and (max-width: 768px) {
@@ -286,6 +291,10 @@ body {
     #box {
         top: 200px;
         background-color: transparent;
+    }
+
+    #phonecopyright {
+        top: 39%;
     }
 }
 
@@ -320,6 +329,10 @@ body {
     .message-bg {
         font-size: 13px;
         line-height: 22px;
+    }
+
+    #phonecopyright {
+        top: 29%;
     }
 }
 
