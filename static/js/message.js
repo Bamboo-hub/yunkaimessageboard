@@ -412,4 +412,4 @@ loadMessages(function(response) {
 buttonClick()
 bindEventPassword()
 bindEventpages()
-// bindEventMusic()
+bindEventMusic()
